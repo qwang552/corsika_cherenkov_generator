@@ -1,0 +1,32 @@
+# Generate new 1 TeV showers on one GPU (HTCondor).
+# CHANGE THE TWO PATHS BELOW: code_dir = this repository, env_activate = your python environment.
+#   N     number of showers (default 10)
+#   OUT   output folder, relative to code_dir or absolute (default showers)
+#   SEED  shower n uses SEED + n (default 0); a second job with a larger N only adds the missing files
+# Submit from a scratch directory (condor writes its logs there):
+#   condor_submit N=100 /data/user/qwang/github/corsika_cherenkov_generator/jobs/generate.sub
+
+code_dir = /data/user/qwang/github/corsika_cherenkov_generator
+env_activate = /data/user/qwang/env/env2025/bin/activate
+
+universe = vanilla
+executable = $(code_dir)/run_generate.sh
+environment = "GEN_CODE=$(code_dir) GEN_ENV=$(env_activate)"
+getenv = True
+arguments = "--n $(N:10) --out $(OUT:showers) --seed $(SEED:0)"
+request_cpus = 2
+request_memory = 16GB
+request_disk = 4GB
+request_gpus = 1
+# capability 6.0 to 8.9: GTX 1080 (6.1) up to A40 / Ada; excludes the 4 GB GTX 980 (5.2) and Hopper / Blackwell (9.0 and up)
+requirements = (GPUs_Capability >= 6.0) && (GPUs_Capability < 9.0)
+should_transfer_files = YES
+when_to_transfer_output = ON_EXIT
+transfer_executable = True
+transfer_output_files = ""
+output = generate.$(Cluster).$(Process).out
+error = generate.$(Cluster).$(Process).err
+log = generate.$(Cluster).log
+stream_output = True
+stream_error = True
+queue 1
