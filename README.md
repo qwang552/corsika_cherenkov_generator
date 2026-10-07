@@ -13,8 +13,9 @@ pip install -r requirements.txt
 python generate.py --n 10
 ```
 
-This writes `showers/shower_00000.npz` ... `shower_00009.npz`. Run it inside this
-folder: `trained_model/` and `showers/` are relative to it. Options (all optional):
+This writes `showers/shower_00000.npz` ... `shower_00009.npz`. 
+
+Options (all optional):
 
 | option | default | meaning |
 |---|---|---|
@@ -23,7 +24,7 @@ folder: `trained_model/` and `showers/` are relative to it. Options (all optiona
 | `--seed` | 0 | shower n uses seed + n; the same seed gives the same showers |
 | `--model` | `trained_model` | model folder |
 
-A GPU is used when one is available. On a CPU one shower takes about 10 minutes.
+A GPU is used when one is available; otherwise it runs on the CPU automatically. On a CPU one shower takes about 10 minutes.
 A second run with a larger `--n` only adds the missing files.
 
 ## On the cluster (HTCondor, GPU)
