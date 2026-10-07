@@ -13,9 +13,7 @@ pip install -r requirements.txt
 python generate.py --n 10
 ```
 
-This writes `showers/shower_00000.npz` ... `shower_00009.npz`. 
-
-Options (all optional):
+This writes `showers/shower_00000.npz` ... `shower_00009.npz`. Options (all optional):
 
 | option | default | meaning |
 |---|---|---|
