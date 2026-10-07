@@ -4,10 +4,10 @@
 #   OUT   output folder, relative to code_dir or absolute (default showers)
 #   SEED  shower n uses SEED + n (default 0); a second job with a larger N only adds the missing files
 # Submit from a scratch directory (condor writes its logs there):
-#   condor_submit N=100 /data/user/qwang/github/corsika_cherenkov_generator/jobs/generate.sub
+#   condor_submit N=100 /path/to/corsika_cherenkov_generator/jobs/generate.sub
 
-code_dir = /data/user/qwang/github/corsika_cherenkov_generator
-env_activate = /data/user/qwang/env/env2025/bin/activate
+code_dir = /path/corsika_cherenkov_generator
+env_activate = /path/to/bin/activate
 
 universe = vanilla
 executable = $(code_dir)/run_generate.sh
