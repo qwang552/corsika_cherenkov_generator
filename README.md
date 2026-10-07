@@ -1,8 +1,7 @@
 # CORSIKA in-ice Cherenkov shower generator
 
 > **Status: work in progress.** The model is still being improved, and the generated
-> showers do not yet fully match CORSIKA 8. Use them for testing and visualization only,
-> not for physics analysis.
+> showers do not yet fully match CORSIKA 8. Use them for testing and visualization only.
 
 Generates new 1 TeV CORSIKA 8 in-ice showers: the number of Cherenkov photons in
 every lit 2 cm voxel of a 4 m box (192³ grid, light with time < 12 ns).
