@@ -6,7 +6,7 @@
 # Submit from a scratch directory (condor writes its logs there):
 #   condor_submit N=100 /path/to/corsika_cherenkov_generator/jobs/generate.sub
 
-code_dir = /path/corsika_cherenkov_generator
+code_dir = /path/to/corsika_cherenkov_generator
 env_activate = /path/to/bin/activate
 
 universe = vanilla
